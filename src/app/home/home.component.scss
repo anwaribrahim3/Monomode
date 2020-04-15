@@ -24,11 +24,11 @@
     position: relative;
     max-width: 100%;
      .left{
-        width: 50%;
+        width: 52%;
         z-index: 5;
          margin-left: -10px;
          display: flex;
-         position: relative;
+         position: absolute;
          color: #ffffff;
          .heading{
              position: absolute;
@@ -58,19 +58,20 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 94%;
         height: 100%;
         overflow: hidden;
     }
     .box_area li{
-        position: absolute;
+        position: relative;
         display: block;
         list-style: none;
         width: 25px;
         height: 25px;
         border-radius: 50%;
         background-color: #fff;
-        animation: animat 20s linear infinite;
+        animation: animat1 20s linear infinite;
+        transform: rotateZ(-90deg);
         //bottom: -250px;
         animation-direction: alternate;
     }
@@ -112,7 +113,7 @@
     left: 44%;
     top: 80%;
     width: 18px;
-    height: 18px;
+    height: 18px;   
     border-radius: 50%;
     transform: skew(0deg);
     
@@ -157,14 +158,15 @@
     animation-delay: 0s;
 }
 
-    @keyframes animat {
+    @keyframes animat1 {
         0%{
-            transform: translate(0,0) rotate(0deg);
+            transform: translate(0,0,0);
             opacity: 1;
         }
         100%{
-            transform: translate(20px,200px) rotate(360deg);
+            transform: translate(0,200px);
             opacity: 1;
+          
         }
     }
     }
@@ -295,58 +297,101 @@ width: 30%;
     }
     
 }
-
-.center{
+.image{
+    position: absolute;
+    z-index: 1;
+    //height: 100vh;
     width: 47%;
-       margin-left: -125px;
-       z-index: 3;
-       margin-top: 85px;
-        transition: 4s;
-        animation: anim1 6s infinite;
-        animation-delay: 10s;
-        background-repeat: no-repeat;
-        background-size: cover;
-       .image{
-      // margin-right: 50px;
-       
-
-           img{
-               max-width: 115.5%;
-               height: 88.7vh;
-               transition: 2s;
-               animation: anim 4s;
-               
-               
-           }
-       }
-}
+    margin-left: 43%;
+    top: 11.2%;
+    animation: animat 10s forwards;
+    img{
+        max-width: 111.5%;
+        height: 88.7vh;
+    
+        
     }
-@keyframes anim {
-    0%{
+}
+.center{
+    
+    width: 55%;
+    height: 100vh;
+    padding: 0;
+    margin: 0px;
+    margin-left: 43%;
+   overflow: hidden;
+   z-index: 0;
+   .slide{
+      
+  
+  img{
+      width: 33.33333%;
+      height: 100vh;
+      float: left;
+  }      
+    figure{
+        position: relative;
+        width: 300%;
+        margin: 0px;
+        left: 0px;
+        animation: webzone 10s infinite linear;
+        animation-delay: 15s;
+    }
+     }    
+        
+      
+    }
+    }
+    @keyframes webzone {
+        0%{left: -200%; margin-left: 0px;}
+        25%{left: -200%; margin-left: 20px;}
+        30%{left: -100%;margin-left: 0px;}
+        75%{left: -100%;margin-left: 20px;}
+        80%{left: 0%;margin-left: 0px;}
+        100%{left: 0%;margin-left: 0px;}
+    }
+    @keyframes slide {
+        0%{left: 100%; width: 100%;}
+        5%{left: 0%;}
+        25%{left: 0%;}
+        30%{left: -100%;width: 100%;}
+        30.001%{left: -100%; width: 0%;}
+        100%{left: 100%; width: 0%;}
+        
+    }
+   @keyframes animat {
+       0%{
+           z-index: 3;
            transform: scale(1.1);
            
-    }
-    
-    50%{
-    
-    
-    }
-    100%{
-         transform:scale(1);
-    }
-    
-}
-@keyframes anim1 {
-    0%{
-    
-        z-index: 0;
-    }
-    100%{
-        margin-left: -80px;
-        z-index: 0;
-    }
+       }
+      73%{
+          z-index: 3;
+          transform: scale(1);
+          
+          
+      }
+      73.001%{
+          z-index: 1;
+          transform: translateX(0%);
+          margin-left: 43%
+      }
+      95%{
+          z-index: 1;
+          transform: translateX(0%);
+          margin-left: 44.5%;
+      }
+      100%{
+          z-index: 1;
+          transform: translateX(120%);
+          z-index: 1;
+      } 
+   }
+   
 
-}
+        
+          
+ 
 .rightbar{
     top: 0px;
     position: absolute;
@@ -357,12 +402,15 @@ width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
     .para1,.para2,.para3{
     transform: rotateZ(90deg);
     position: absolute;
      display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 0;
+
     
     }
     .para1{
